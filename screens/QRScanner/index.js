@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Alert, AsyncStorage, Text, View, StyleSheet, Linking } from 'react-native';
+import { Alert, AsyncStorage, Clipboard, Text, View, StyleSheet, Linking } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 
 export default (props) => {
@@ -11,7 +11,6 @@ export default (props) => {
       const { status } = await BarCodeScanner.requestPermissionsAsync();
       setHasPermission(status === 'granted');
     })();
-    return () => setScanned(true)
   }, []);
 
   const handleBarCodeScanned = ({ type, data }) => {
@@ -19,12 +18,15 @@ export default (props) => {
     if (type === "org.iso.QRCode") {
       Alert.alert(
         'QR-koodi luettu.',
-        `Sisältö:\n ${data}. Avataanko?`,
+        `Sisältö:\n "${data}". Avataanko?`,
         [
-          {text: 'Cancel', onPress: () => setScanned(false), style: 'cancel'},
+          {text: 'Peruuta', onPress: () => setScanned(false), style: 'cancel'},
           {text: 'OK', onPress: () => handleAlertOk(data)},
-        ],
-        { cancelable: false }
+          {text: 'Kopioi leikepöydälle', onPress: () => {
+            Clipboard.setString(data)
+            Alert.alert('Kopioitu.')
+          }},
+        ]
       )
     }
   };
