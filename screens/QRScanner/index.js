@@ -32,7 +32,7 @@ export default (props) => {
   const handleAlertOk = async (data) => {
     await _storeData(data), 
     setScanned(false)
-    Linking.openURL(data).catch((err) => Alert('Virhe', err));
+    Linking.openURL(data).catch((err) => Alert.alert('Virhe', err));
   }
 
 	const _storeData = async (data) => {

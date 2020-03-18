@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import React from 'react';
+import { StyleSheet, TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Ionicons } from '@expo/vector-icons';
@@ -10,8 +10,6 @@ import QRScanner from './screens/QRScanner';
 const Stack = createStackNavigator();
 
 export default function App() {
-	const [ scannedCodes, setScannedCodes ] = useState([])
-	
   return (
     <NavigationContainer>
 			<Stack.Navigator 
@@ -39,30 +37,22 @@ export default function App() {
 				<Stack.Screen 
 					name="Skannatut QR-koodit" 
 					component={QRListScreen} 
-					options={ ({ navigation }) => ({
+					options={({ navigation }) => ({
 						headerLeft: () => ( 
 						<TouchableOpacity 
 							onPress={() => navigation.goBack()}
-							style={{ paddingLeft: 10 }}
+							style={{ width: 100, alignItems: 'center', justifyContent: 'center' }}
 						>
 							<Ionicons
 								name="md-qr-scanner" 	
 								size={40} 
 								color="black" 
 							/>
-					</TouchableOpacity> )
+            </TouchableOpacity> 
+            )
 					})}
 				/>
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
