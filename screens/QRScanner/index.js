@@ -66,22 +66,10 @@ export default (props) => {
         flexDirection: 'column',
         justifyContent: 'flex-end',
       }}>
-			<TouchableOpacity
-				style={{ position: 'absolute', zIndex: 100000, right: 20, top: 20 }} 
-				onPress={() => props.navigation.navigate('Skannatut QR-koodit')}
-			>
-				<FontAwesome
-					name="list" 	
-					size={40} 
-					color="white" 
-				/>
-			</TouchableOpacity>
       <BarCodeScanner
         onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
         style={StyleSheet.absoluteFillObject}
       />
-      {scanned && <Button title={'Tap to Scan Again'} onPress={() => setScanned(false)} />}
     </View>
-		
   );
 }

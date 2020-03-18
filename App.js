@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { Ionicons } from '@expo/vector-icons';
+import { Ionicons, FontAwesome } from '@expo/vector-icons';
 
 import QRListScreen from './screens/QRList';
 import QRScanner from './screens/QRScanner';
@@ -27,12 +27,24 @@ export default function App() {
 				<Stack.Screen 
 					name="QR Skanneri" 
 					component={QRScanner} 
-					options={{
+					options={({ navigation }) => ({
             headerTransparent: true,
 						headerTitleStyle: {
 							color: 'white',
-						},
-					}}
+            },
+            headerRight: () => (
+              <TouchableOpacity
+                style={{ position: 'absolute', zIndex: 100000, right: 20 }} 
+                onPress={() => navigation.navigate('Skannatut QR-koodit')}
+              >
+                <FontAwesome
+                  name="list" 	
+                  size={35} 
+                  color="white" 
+                />
+              </TouchableOpacity>
+            )
+					})}
 				/>
 				<Stack.Screen 
 					name="Skannatut QR-koodit" 
