@@ -6,7 +6,6 @@ import { FontAwesome } from '@expo/vector-icons';
 export default (props) => {
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
-  console.log(props.navigation.isFocused())
 
   useEffect(() => {
     (async () => {
@@ -46,7 +45,6 @@ export default (props) => {
 			} else {
 				scannedCodes = JSON.parse(scannedCodes)
 			}
-			console.log(scannedCodes)
 			scannedCodes.push(newItem)
 			await AsyncStorage.setItem('ScannedCodes', JSON.stringify(scannedCodes));
 		} catch (error) {
