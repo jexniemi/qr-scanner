@@ -6,12 +6,14 @@ import { FontAwesome } from '@expo/vector-icons';
 export default (props) => {
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
+  console.log(props.navigation.isFocused())
 
   useEffect(() => {
     (async () => {
       const { status } = await BarCodeScanner.requestPermissionsAsync();
       setHasPermission(status === 'granted');
     })();
+    return () => setScanned(true)
   }, []);
 
   const handleBarCodeScanned = ({ type, data }) => {
