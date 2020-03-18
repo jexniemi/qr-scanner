@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Alert, AsyncStorage, Text, TouchableOpacity, View, StyleSheet, Linking, Button } from 'react-native';
+import { Alert, AsyncStorage, Text, View, StyleSheet, Linking } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
-import { FontAwesome } from '@expo/vector-icons';
 
 export default (props) => {
   const [hasPermission, setHasPermission] = useState(null);

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { AsyncStorage, View, FlatList } from 'react-native';
 import ListItem from './ListItem'
 
-export default (props) => {
+export default () => {
 	const [ scannedCodes, setScannedCodes ] = useState([])
 
 	useEffect(() => {
