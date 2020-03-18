@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { AsyncStorage, Text, TouchableOpacity, View, FlatList, ScrollView, StyleSheet, Button } from 'react-native';
+import { Alert, AsyncStorage, Text, TouchableOpacity, View, StyleSheet, Linking, Button } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 import { FontAwesome } from '@expo/vector-icons';
 
@@ -16,9 +16,24 @@ export default (props) => {
 
   const handleBarCodeScanned = ({ type, data }) => {
     setScanned(true);
-		alert(`Bar code with type ${type} and data ${data} has been scanned!`);
-		_storeData(data)
-	};
+    if (type === "org.iso.QRCode") {
+      Alert.alert(
+        'QR-koodi luettu.',
+        `Sisältö:\n ${data}. Avataanko?`,
+        [
+          {text: 'Cancel', onPress: () => setScanned(false), style: 'cancel'},
+          {text: 'OK', onPress: () => handleAlertOk(data)},
+        ],
+        { cancelable: false }
+      )
+    }
+  };
+  
+  const handleAlertOk = async (data) => {
+    await _storeData(data), 
+    setScanned(false)
+    Linking.openURL(data).catch((err) => Alert('Virhe', err));
+  }
 
 	const _storeData = async (data) => {
 		var newItem = { date: `${new Date()}`, data }
@@ -32,7 +47,6 @@ export default (props) => {
 			console.log(scannedCodes)
 			scannedCodes.push(newItem)
 			await AsyncStorage.setItem('ScannedCodes', JSON.stringify(scannedCodes));
-			alert('success saving')
 		} catch (error) {
 			alert(error)
 		}

@@ -13,7 +13,7 @@ export default (props) => {
 		try {
 			var codes = await AsyncStorage.getItem('ScannedCodes')
 			if (codes != null) {
-				setScannedCodes(JSON.parse(codes))
+				setScannedCodes(JSON.parse(codes).reverse())
 			}
 		} catch (error) {
 			alert(error)
@@ -41,10 +41,10 @@ const ListItem = (props) => (
 				size={20} 
 				color="gray" 
 			/>
-		</View>
+    </View>
 		<View style={listItemStyle.detailsContainer}>
-			<Text style={{ fontWeight: '500', textDecorationLine: 'underline'}}>{props.url}</Text>
-			<Text style={{ fontSize: 10 }}>{new Date(props.date).toLocaleString('fi-FI')}</Text>
+			<Text style={listItemStyle.url}>{props.url}</Text>
+			<Text style={listItemStyle.date}>{new Date(props.date).toLocaleString('fi-FI')}</Text>
 		</View>
 		
 	</TouchableOpacity>
@@ -68,5 +68,12 @@ const listItemStyle = {
 		justifyContent: 'center',
 		alignItems: 'center',
 		flexDirection: 'column',
-	}
+  },
+  url: {
+    fontWeight: '500', 
+    textDecorationLine: 'underline'
+  },
+  date: {
+    fontSize: 10 
+  }
 }

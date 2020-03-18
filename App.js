@@ -15,7 +15,8 @@ export default function App() {
   return (
     <NavigationContainer>
 			<Stack.Navigator 
-				initialRouteName="QRScanner"
+        initialRouteName="QRScanner"
+        mode="modal"
 				screenOptions={{
 					headerStyle: {
 						backgroundColor: 'white',
@@ -29,9 +30,7 @@ export default function App() {
 					name="QR Skanneri" 
 					component={QRScanner} 
 					options={{
-						headerStyle: {
-							backgroundColor: 'black',
-						},
+            headerTransparent: true,
 						headerTitleStyle: {
 							color: 'white',
 						},
@@ -44,7 +43,7 @@ export default function App() {
 						headerLeft: () => ( 
 						<TouchableOpacity 
 							onPress={() => navigation.goBack()}
-							style={{ paddingLeft: 5}}
+							style={{ paddingLeft: 10 }}
 						>
 							<Ionicons
 								name="md-qr-scanner" 	
