@@ -63,7 +63,7 @@ const ToQRScanner = ({ navigation }) => (
 
 const ToQRList = ({ navigation }) => (
   <TouchableOpacity
-    style={{ position: 'absolute', zIndex: 100000, right: 20 }} 
+    style={{ position: 'absolute', zIndex: 1000000, right: 20 }} 
     onPress={() => navigation.navigate('Skannatut QR-koodit')}
   >
     <FontAwesome
