@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { AsyncStorage, View, FlatList } from 'react-native';
 import ListItem from './ListItem'
+import LoadingLayout from '../_common/LoadingLayout'
 
 export default () => {
-	const [ scannedCodes, setScannedCodes ] = useState([])
+  const [ scannedCodes, setScannedCodes ] = useState([])
+  const [ isLoading, setIsLoading ] = useState(true)
 
 	useEffect(() => {
-		_retrieveData()
+    _retrieveData()
 	}, [])
 
 	const _retrieveData = async () => {
@@ -17,8 +19,13 @@ export default () => {
 			}
 		} catch (error) {
 			alert(error)
-		}
-	};
+    }
+    setIsLoading(false)
+  };
+  
+  if (isLoading) {
+    return <LoadingLayout />
+  }
 
   return (
     <View style={{ flex: 1, flexDirection: 'column' }}>
