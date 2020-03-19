@@ -17,21 +17,35 @@ export default (props) => {
     setScanned(true);
     Alert.alert(
       'QR-koodi luettu.',
-      `Sisältö:\n "${data}". Avataanko?`,
+      `Sisältö:\n "${data}"`,
       [
-        {text: 'Peruuta', onPress: () => setScanned(false), style: 'cancel'},
-        {text: 'OK', onPress: () => handleAlertOk(data)},
-        {text: 'Kopioi leikepöydälle', onPress: () => {
-          Clipboard.setString(data)
-          Alert.alert('Kopioitu.')
-        }},
-      ]
+        {text: 'Peruuta', onPress: () => setScannedFalse(), style: 'cancel'},
+        {text: 'Avaa', onPress: () => handleAlertOpen(data)},
+        {text: 'Kopioi leikepöydälle', onPress: () => handleAlertCopy(data)},
+      ],
+      { cancelable: false }
     )
   };
   
-  const handleAlertOk = async (data) => {
+  const setScannedFalse = () => {
+    setTimeout(() => {
+      setScanned(false)
+    }, 2000);
+  }
+
+  const handleAlertCopy = async(data) => {
+    await _storeData(data)
+    Clipboard.setString(data)
+    Alert.alert(
+      'Kopioitu.', 
+      '',
+      [{ text: 'Ok', onPress: () => setScannedFalse()}], 
+      { cancelable: false })
+  }
+
+  const handleAlertOpen = async(data) => {
     await _storeData(data), 
-    setScanned(false)
+    setScannedFalse()
     Linking.openURL(data).catch((err) => Alert.alert('Virhe', err));
   }
 

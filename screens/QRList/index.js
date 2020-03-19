@@ -24,7 +24,7 @@ export default () => {
     <View style={{ flex: 1, flexDirection: 'column' }}>
 			<FlatList 
 				data={scannedCodes}
-        renderItem={({ item }) => <ListItem url={item.data} date={item.date} />}
+        renderItem={({ item }) => <ListItem content={item.data} date={item.date} />}
         keyExtractor={item => item.date}
 			/>
     </View>

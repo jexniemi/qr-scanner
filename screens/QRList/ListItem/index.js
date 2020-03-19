@@ -2,18 +2,18 @@ import React from 'react';
 import { Alert, Clipboard, Linking, Text, View, TouchableOpacity } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-export default ({ url, date }) => {
+export default ({ content, date }) => {
   const handlePress = () => {
     Alert.alert(
       'QR-koodin sisältö:',
-      `${url}`,
+      `${content}`,
       [
         {text: 'Peruuta', onPress: () => {}, style: 'cancel'},
         {text: 'Avaa', onPress: () => {
-          Linking.openURL(url).catch((err) => Alert.alert('Virhe', err));
+          Linking.openURL(content).catch((err) => Alert.alert('Virhe', err));
         }},
         {text: 'Kopioi leikepöydälle', onPress: () => {
-          Clipboard.setString(url)
+          Clipboard.setString(content)
           Alert.alert('Kopioitu.')
         }},
       ]
@@ -32,7 +32,7 @@ export default ({ url, date }) => {
         />
       </View>
       <View style={styles.detailsContainer}>
-        <Text style={styles.url} numberOfLines={2} ellipsizeMode="tail">{url}</Text>
+        <Text style={styles.content} numberOfLines={2} ellipsizeMode="tail">{content}</Text>
         <Text style={styles.date}>{new Date(date).toLocaleString('fi-FI')}</Text>
       </View>
     </TouchableOpacity>
@@ -58,7 +58,7 @@ const styles = {
 		alignItems: 'center',
 		flexDirection: 'column',
   },
-  url: {
+  content: {
     fontWeight: '500', 
     textDecorationLine: 'underline',
     maxWidth: 200
