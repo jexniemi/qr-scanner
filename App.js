@@ -15,56 +15,52 @@ export default function App() {
 			<Stack.Navigator 
         initialRouteName="QRScanner"
         mode="modal"
-				screenOptions={{
-					headerStyle: {
-						backgroundColor: 'white',
-					},
-					headerTitleStyle: {
-            color: 'black',
-          },
-				}}
 			>
 				<Stack.Screen 
-					name="QR Skanneri" 
+          name="QR Skanneri" 
 					component={QRScanner} 
 					options={({ navigation }) => ({
             headerTransparent: true,
 						headerTitleStyle: {
 							color: 'white',
             },
-            headerRight: () => (
-              <TouchableOpacity
-                style={{ position: 'absolute', zIndex: 100000, right: 20 }} 
-                onPress={() => navigation.navigate('Skannatut QR-koodit')}
-              >
-                <FontAwesome
-                  name="list" 	
-                  size={35} 
-                  color="white" 
-                />
-              </TouchableOpacity>
-            )
+            headerRight: () => <ToQRList navigation={navigation}/>
 					})}
 				/>
 				<Stack.Screen 
 					name="Skannatut QR-koodit" 
 					component={QRListScreen} 
 					options={({ navigation }) => ({
-						headerLeft: () => ( 
-						<TouchableOpacity 
-							onPress={() => navigation.goBack()}
-							style={{ width: 100, alignItems: 'center', justifyContent: 'center' }}
-						>
-							<Ionicons
-								name="md-qr-scanner" 	
-								size={40} 
-								color="black" 
-							/>
-            </TouchableOpacity> 
-            )
+						headerLeft: () => <ToQRScanner navigation={navigation}/>
 					})}
 				/>
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
+
+const ToQRScanner = ({ navigation }) => (
+  <TouchableOpacity 
+    onPress={() => navigation.goBack()}
+    style={{ width: 100, alignItems: 'center', justifyContent: 'center' }}
+  >
+    <Ionicons
+      name="md-qr-scanner" 	
+      size={40} 
+      color="black" 
+    />
+  </TouchableOpacity> 
+)
+
+const ToQRList = ({ navigation }) => (
+  <TouchableOpacity
+    style={{ position: 'absolute', zIndex: 100000, right: 20 }} 
+    onPress={() => navigation.navigate('Skannatut QR-koodit')}
+  >
+    <FontAwesome
+      name="list" 	
+      size={35} 
+      color="white" 
+    />
+  </TouchableOpacity>
+)
