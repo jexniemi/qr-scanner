@@ -84,7 +84,7 @@ export default (props) => {
       }}>
       <BarCodeScanner
         onBarCodeScanned={scanned || !isFocused ? undefined : handleBarCodeScanned}
-        style={StyleSheet.absoluteFillObject}
+        style={StyleSheet.absoluteFillObject, { height: '110%' }}
         barCodeTypes={[BarCodeScanner.Constants.BarCodeType.qr]}
       />
     </View>
