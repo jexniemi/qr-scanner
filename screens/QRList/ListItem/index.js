@@ -51,19 +51,20 @@ const styles = {
 	iconContainer: {
 		justifyContent: 'center',
 		alignItems: 'center',
-		width: 100,
+		width: 90,
 		position: 'absolute'
 	},
 	detailsContainer: {
 		alignSelf: 'center',
 		justifyContent: 'center',
 		alignItems: 'center',
-		flexDirection: 'column',
+    flexDirection: 'column',
   },
   content: {
+    textAlign: 'center',
     fontWeight: '500', 
     textDecorationLine: 'underline',
-    maxWidth: 200
+    maxWidth: 220
   },
   date: {
     fontSize: 10 

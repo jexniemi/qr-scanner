@@ -18,7 +18,8 @@ export default function App() {
         screenOptions={{
           headerStyle: {
             height: 80
-          }
+          },
+          headerTitleAlign: 'center',
         }}
 			>
 				<Stack.Screen 
@@ -50,7 +51,7 @@ export default function App() {
 const ToQRScanner = ({ navigation }) => (
   <TouchableOpacity 
     onPress={() => navigation.navigate('QR Skanneri')}
-    style={{ width: 100, alignItems: 'center', justifyContent: 'center' }}
+    style={{ width: 90, alignItems: 'center', justifyContent: 'center' }}
   >
     <Ionicons
       name="md-qr-scanner" 	
