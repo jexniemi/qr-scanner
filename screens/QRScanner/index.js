@@ -15,20 +15,18 @@ export default (props) => {
 
   const handleBarCodeScanned = ({ type, data }) => {
     setScanned(true);
-    if (type === "org.iso.QRCode") {
-      Alert.alert(
-        'QR-koodi luettu.',
-        `Sisältö:\n "${data}". Avataanko?`,
-        [
-          {text: 'Peruuta', onPress: () => setScanned(false), style: 'cancel'},
-          {text: 'OK', onPress: () => handleAlertOk(data)},
-          {text: 'Kopioi leikepöydälle', onPress: () => {
-            Clipboard.setString(data)
-            Alert.alert('Kopioitu.')
-          }},
-        ]
-      )
-    }
+    Alert.alert(
+      'QR-koodi luettu.',
+      `Sisältö:\n "${data}". Avataanko?`,
+      [
+        {text: 'Peruuta', onPress: () => setScanned(false), style: 'cancel'},
+        {text: 'OK', onPress: () => handleAlertOk(data)},
+        {text: 'Kopioi leikepöydälle', onPress: () => {
+          Clipboard.setString(data)
+          Alert.alert('Kopioitu.')
+        }},
+      ]
+    )
   };
   
   const handleAlertOk = async (data) => {
@@ -70,6 +68,7 @@ export default (props) => {
       <BarCodeScanner
         onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
         style={StyleSheet.absoluteFillObject}
+        barCodeTypes={[BarCodeScanner.Constants.BarCodeType.qr]}
       />
     </View>
   );
