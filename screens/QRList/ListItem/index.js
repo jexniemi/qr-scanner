@@ -20,22 +20,25 @@ export default ({ content, date }) => {
     )
   }
   return (
-    <TouchableOpacity
-      style={styles.wrapper}
-      onPress={() => handlePress()}
-    >
-      <View style={styles.iconContainer}>
-        <MaterialCommunityIcons
-          name="qrcode" 	
-          size={20} 
-          color="gray" 
-        />
-      </View>
-      <View style={styles.detailsContainer}>
-        <Text style={styles.content} numberOfLines={2} ellipsizeMode="tail">{content}</Text>
-        <Text style={styles.date}>{new Date(date).toLocaleString('fi-FI')}</Text>
-      </View>
-    </TouchableOpacity>
+    <View>
+      <TouchableOpacity
+        style={styles.wrapper}
+        onPress={() => handlePress()}
+      >
+        <View style={styles.iconContainer}>
+          <MaterialCommunityIcons
+            name="qrcode" 	
+            size={20} 
+            color="gray" 
+          />
+        </View>
+        <View style={styles.detailsContainer}>
+          <Text style={styles.content} numberOfLines={2} ellipsizeMode="tail">{content}</Text>
+          <Text style={styles.date}>{new Date(date).toLocaleString('fi-FI')}</Text>
+        </View>
+      </TouchableOpacity>
+      <View style={{ borderBottomWidth: 1}}/>
+    </View>
   )
 }
 
@@ -44,7 +47,6 @@ const styles = {
 		flexDirection: 'column',
 		justifyContent: 'center',
 		height: 80,
-		borderBottomWidth: 1,
 	},
 	iconContainer: {
 		justifyContent: 'center',
