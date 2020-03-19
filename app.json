@@ -11,9 +11,9 @@
     ],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/qrIcon.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/qrSplash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -24,7 +24,21 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "host.flipgate.qrskanneri",
+      "buildNumber": "1.0.0",
+      "infoPlist": {
+        "NSCameraUsageDescription": "This app uses the camera to scan QR codes."
+      }
+    },
+    "android": {
+      "icon": "./assets/itsudemo_icon.png",
+      "package": "host.flipgate.qrskanneri",
+      "versionCode": 1,
+      "permissions": [
+        "CAMERA"
+      ]
     }
+
   }
 }
