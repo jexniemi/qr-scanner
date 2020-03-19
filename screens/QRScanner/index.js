@@ -77,16 +77,24 @@ export default (props) => {
 
   return (
     <View
-      style={{
-        flex: 1,
-        flexDirection: 'column',
-        backgroundColor: 'black',
-      }}>
+      style={styles.container}>
       <BarCodeScanner
         onBarCodeScanned={scanned || !isFocused ? undefined : handleBarCodeScanned}
-        style={{ width: Dimensions.get('screen').width, height: Dimensions.get('screen').height}}
+        style={styles.barCodeScanner}
         barCodeTypes={[BarCodeScanner.Constants.BarCodeType.qr]}
       />
     </View>
   );
+}
+
+const styles = {
+  container: {
+    flex: 1,
+    flexDirection: 'column',
+    backgroundColor: 'black',
+  },
+  barCodeScanner: {
+    width: Dimensions.get('screen').width, 
+    height: Dimensions.get('screen').height
+  }
 }
