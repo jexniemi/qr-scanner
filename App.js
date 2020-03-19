@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchableOpacity } from 'react-native';
+import { TouchableOpacity, Platform } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Ionicons, FontAwesome } from '@expo/vector-icons';
@@ -25,7 +25,10 @@ export default function App() {
           name="QR Skanneri" 
 					component={QRScanner} 
 					options={({ navigation }) => ({
-            headerTransparent: true,
+            headerTransparent: Platform.OS === 'ios' ? true : false,
+            headerStyle: {
+              backgroundColor: 'black'
+            },
 						headerTitleStyle: {
 							color: 'white',
             },

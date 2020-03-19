@@ -81,7 +81,6 @@ export default (props) => {
         flex: 1,
         flexDirection: 'column',
         backgroundColor: 'black',
-        paddingTop: Platform.OS === 'ios' ? 0 : 80,
       }}>
       <BarCodeScanner
         onBarCodeScanned={scanned || !isFocused ? undefined : handleBarCodeScanned}
