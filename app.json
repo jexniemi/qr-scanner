@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "Blank Template",
+    "name": "QR Skanneri",
     "slug": "qrSkanneri",
     "privacy": "public",
     "sdkVersion": "36.0.0",
@@ -25,15 +25,15 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "host.flipgate.qrskanneri",
+      "bundleIdentifier": "fi.flipgate.qrskanneri",
       "buildNumber": "1.0.0",
       "infoPlist": {
         "NSCameraUsageDescription": "This app uses the camera to scan QR codes."
       }
     },
     "android": {
-      "icon": "./assets/itsudemo_icon.png",
-      "package": "host.flipgate.qrskanneri",
+      "icon": "./assets/qrIcon.png",
+      "package": "fi.flipgate.qrskanneri",
       "versionCode": 1,
       "permissions": [
         "CAMERA"

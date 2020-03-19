@@ -55,7 +55,7 @@ const ToQRScanner = ({ navigation }) => (
   >
     <Ionicons
       name="md-qr-scanner" 	
-      size={40} 
+      size={35} 
       color="black" 
     />
   </TouchableOpacity> 
