@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Alert, AsyncStorage, Clipboard, Text, View, StyleSheet, Linking } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
+import { useIsFocused } from '@react-navigation/native';
 
 export default (props) => {
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
+
+  const isFocused = useIsFocused()
 
   useEffect(() => {
     (async () => {
@@ -80,7 +83,7 @@ export default (props) => {
         justifyContent: 'flex-end',
       }}>
       <BarCodeScanner
-        onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
+        onBarCodeScanned={scanned || !isFocused ? undefined : handleBarCodeScanned}
         style={StyleSheet.absoluteFillObject}
         barCodeTypes={[BarCodeScanner.Constants.BarCodeType.qr]}
       />
