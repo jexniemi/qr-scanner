@@ -15,6 +15,11 @@ export default function App() {
 			<Stack.Navigator 
         initialRouteName="QRScanner"
         mode="modal"
+        screenOptions={{
+          headerStyle: {
+            height: 80
+          }
+        }}
 			>
 				<Stack.Screen 
           name="QR Skanneri" 
@@ -41,7 +46,7 @@ export default function App() {
 
 const ToQRScanner = ({ navigation }) => (
   <TouchableOpacity 
-    onPress={() => navigation.goBack()}
+    onPress={() => navigation.navigate('QR Skanneri')}
     style={{ width: 100, alignItems: 'center', justifyContent: 'center' }}
   >
     <Ionicons

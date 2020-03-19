@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { Alert, AsyncStorage, Clipboard, Text, View, StyleSheet, Linking } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { Alert, AsyncStorage, Clipboard, Dimensions, Text, View, Linking } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 import { useIsFocused } from '@react-navigation/native';
 
@@ -80,11 +80,12 @@ export default (props) => {
       style={{
         flex: 1,
         flexDirection: 'column',
-        justifyContent: 'flex-end',
+        backgroundColor: 'black',
+        paddingTop: Platform.OS === 'ios' ? 0 : 80,
       }}>
       <BarCodeScanner
         onBarCodeScanned={scanned || !isFocused ? undefined : handleBarCodeScanned}
-        style={StyleSheet.absoluteFillObject, { height: '110%' }}
+        style={{ width: Dimensions.get('screen').width, height: Dimensions.get('screen').height}}
         barCodeTypes={[BarCodeScanner.Constants.BarCodeType.qr]}
       />
     </View>
