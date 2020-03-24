@@ -1,16 +1,27 @@
-import React, { useState, useEffect } from 'react';
-import { AsyncStorage, View, FlatList } from 'react-native';
+import React, { useState, useEffect, useLayoutEffect } from 'react';
+import { AsyncStorage, View, FlatList, Alert } from 'react-native';
 import ListItem from './ListItem'
 import LoadingLayout from '../_common/LoadingLayout'
 import mockData from '../../mockData'
+import ClearStorageButton from './ClearStorageButton'
 
-export default () => {
+export default ({ navigation }) => {
   const [ scannedCodes, setScannedCodes ] = useState([])
   const [ isLoading, setIsLoading ] = useState(true)
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerRight: () => <ClearStorageButton onButtonPress={onClearButtonPress} />
+    })
+  }, [ navigation ])
 
 	useEffect(() => {
     _retrieveData()
   }, [])
+
+  const onClearButtonPress = async () => {
+    AsyncStorage.removeItem('ScannedCodes', setScannedCodes([]), e => Alert.alert(e))
+  }
 
 	const _retrieveData = async () => {
     setScannedCodes(JSON.parse(mockData))
@@ -20,7 +31,7 @@ export default () => {
 				setScannedCodes(JSON.parse(codes).reverse())
 			}
 		} catch (error) {
-			alert(error)
+      Alert.alert(error)
     }
     setIsLoading(false)
   };
