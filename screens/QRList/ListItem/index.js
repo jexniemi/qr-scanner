@@ -28,7 +28,7 @@ export default ({ content, date }) => {
         <View style={styles.iconContainer}>
           <MaterialCommunityIcons
             name="qrcode" 	
-            size={20} 
+            size={22} 
             color="gray" 
           />
         </View>
@@ -37,7 +37,7 @@ export default ({ content, date }) => {
           <Text style={styles.date}>{new Date(date).toLocaleString('fi-FI')}</Text>
         </View>
       </TouchableOpacity>
-      <View style={{ borderBottomWidth: 1}}/>
+      <View style={{ borderBottomWidth: 1, borderBottomColor: 'gray'}}/>
     </View>
   )
 }
@@ -46,12 +46,13 @@ const styles = {
 	wrapper: {
 		flexDirection: 'column',
 		justifyContent: 'center',
-		height: 80,
+    height: 100,
+    backgroundColor: 'white'
 	},
 	iconContainer: {
 		justifyContent: 'center',
 		alignItems: 'center',
-		width: 90,
+		width: 85,
 		position: 'absolute'
 	},
 	detailsContainer: {
@@ -63,10 +64,14 @@ const styles = {
   content: {
     textAlign: 'center',
     fontWeight: '500', 
+    fontSize: 13,
     textDecorationLine: 'underline',
     maxWidth: 220
   },
   date: {
-    fontSize: 10 
+    fontSize: 13,
+    fontWeight: '600',
+    color: 'rgba(80,80,80,1)',
+    paddingTop: 5
   }
 }

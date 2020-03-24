@@ -1,8 +1,8 @@
 import React from 'react';
-import { TouchableOpacity, Platform } from 'react-native';
+import { TouchableOpacity, Button, AsyncStorage, Alert, Platform } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { Ionicons, FontAwesome } from '@expo/vector-icons';
+import { Ionicons, MaterialIcons, FontAwesome } from '@expo/vector-icons';
 
 import QRListScreen from './screens/QRList';
 import QRScanner from './screens/QRScanner';
@@ -40,12 +40,39 @@ export default function App() {
 					name="Skannatut QR-koodit" 
 					component={QRListScreen} 
 					options={({ navigation }) => ({
-						headerLeft: () => <ToQRScanner navigation={navigation}/>
+            headerLeft: () => <ToQRScanner navigation={navigation}/>,
+            // headerRight: () => <ClearStorageButton title='Tyhjennä'/>
 					})}
 				/>
       </Stack.Navigator>
     </NavigationContainer>
   );
+}
+
+const ClearStorageButton = () => {
+    const clearStorage = () => {
+      Alert.alert(
+        "Poista skannatut koodit",
+        "Oletko varma, että haluat poistaa kaikkit skannatut koodit?",
+        [
+          { text: 'Ok', onPress: () => AsyncStorage.clear(() => {})},
+          { text: 'Peruuta', style: 'cancel'}
+        ]
+      )
+    }
+
+    return (
+      <TouchableOpacity 
+        onPress={() => clearStorage()}
+        style={{ width: 90, alignItems: 'center', justifyContent: 'center' }}
+      >
+        <MaterialIcons
+          name="layers-clear" 	
+          size={35} 
+          color="red" 
+        />
+      </TouchableOpacity> 
+    )
 }
 
 const ToQRScanner = ({ navigation }) => (

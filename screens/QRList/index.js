@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { AsyncStorage, View, FlatList } from 'react-native';
 import ListItem from './ListItem'
 import LoadingLayout from '../_common/LoadingLayout'
+import mockData from '../../mockData'
 
 export default () => {
   const [ scannedCodes, setScannedCodes ] = useState([])
@@ -9,9 +10,10 @@ export default () => {
 
 	useEffect(() => {
     _retrieveData()
-	}, [])
+  }, [])
 
 	const _retrieveData = async () => {
+    setScannedCodes(JSON.parse(mockData))
 		try {
 			var codes = await AsyncStorage.getItem('ScannedCodes')
 			if (codes != null) {
@@ -29,6 +31,7 @@ export default () => {
 
   return (
     <View style={{ flex: 1, flexDirection: 'column' }}>
+      <View style={{ borderBottomWidth: 1, borderBottomColor: 'gray'}}/>
 			<FlatList 
 				data={scannedCodes}
         renderItem={({ item }) => <ListItem content={item.data} date={item.date} />}
