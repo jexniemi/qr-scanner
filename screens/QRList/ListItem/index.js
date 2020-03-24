@@ -28,8 +28,8 @@ export default ({ content, date }) => {
         <View style={styles.iconContainer}>
           <MaterialCommunityIcons
             name="qrcode" 	
-            size={22} 
-            color="gray" 
+            size={24} 
+            color="rgba(80,80,80,1)" 
           />
         </View>
         <View style={styles.detailsContainer}>
@@ -47,12 +47,10 @@ const styles = {
 		justifyContent: 'center',
     height: 100,
     marginLeft: 10,
-    marginRight: 10,
-    marginTop: 5,
-    marginBottom: 5,
-    borderRadius: 10,
-    borderColor: 'gray',
-    borderWidth: 1,
+    marginRight: 15,
+    marginTop: 8,
+    marginBottom: 8,
+    borderLeftWidth: 5,
     backgroundColor: 'white'
 	},
 	iconContainer: {
@@ -70,8 +68,7 @@ const styles = {
   content: {
     textAlign: 'center',
     fontWeight: '500', 
-    fontSize: 13,
-    textDecorationLine: 'underline',
+    fontSize: 15,
     maxWidth: 220
   },
   date: {

@@ -17,7 +17,7 @@ export default function App() {
         mode="modal"
         screenOptions={{
           headerStyle: {
-            height: 80
+            height: 90
           },
           headerTitleAlign: 'center',
         }}
@@ -28,7 +28,8 @@ export default function App() {
 					options={({ navigation }) => ({
             headerTransparent: Platform.OS === 'ios' ? true : false,
             headerStyle: {
-              backgroundColor: 'black'
+              backgroundColor: 'black',
+              height: 90
             },
 						headerTitleStyle: {
 							color: 'white',
@@ -41,7 +42,7 @@ export default function App() {
 					component={QRListScreen} 
 					options={({ navigation }) => ({
             headerLeft: () => <ToQRScanner navigation={navigation}/>,
-            // headerRight: () => <ClearStorageButton title='Tyhjennä'/>
+            headerRight: () => <ClearStorageButton title='Tyhjennä'/>
 					})}
 				/>
       </Stack.Navigator>
@@ -64,7 +65,7 @@ const ClearStorageButton = () => {
     return (
       <TouchableOpacity 
         onPress={() => clearStorage()}
-        style={{ width: 90, alignItems: 'center', justifyContent: 'center' }}
+        style={{ width: 105, alignItems: 'center', justifyContent: 'center' }}
       >
         <MaterialIcons
           name="layers-clear" 	
@@ -78,7 +79,7 @@ const ClearStorageButton = () => {
 const ToQRScanner = ({ navigation }) => (
   <TouchableOpacity 
     onPress={() => navigation.navigate('QR Skanneri')}
-    style={{ width: 90, alignItems: 'center', justifyContent: 'center' }}
+    style={{ width: 105, alignItems: 'center', justifyContent: 'center' }}
   >
     <Ionicons
       name="md-qr-scanner" 	

@@ -30,12 +30,12 @@ export default () => {
   }
 
   return (
-    <View style={{ flex: 1, flexDirection: 'column' }}>
+    <View style={{ flex: 1, flexDirection: 'column', backgroundColor: 'rgba(240,240,240,1)' }}>
 			<FlatList 
 				data={scannedCodes}
         renderItem={({ item }) => <ListItem content={item.data} date={item.date} />}
         keyExtractor={item => item.date}
-        contentContainerStyle={{ marginTop: 10 }}
+        contentContainerStyle={{ marginTop: 8 }}
 			/>
     </View>
   )
