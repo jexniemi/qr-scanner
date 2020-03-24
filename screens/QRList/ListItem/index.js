@@ -37,7 +37,6 @@ export default ({ content, date }) => {
           <Text style={styles.date}>{new Date(date).toLocaleString('fi-FI')}</Text>
         </View>
       </TouchableOpacity>
-      <View style={{ borderBottomWidth: 1, borderBottomColor: 'gray'}}/>
     </View>
   )
 }
@@ -47,12 +46,19 @@ const styles = {
 		flexDirection: 'column',
 		justifyContent: 'center',
     height: 100,
+    marginLeft: 10,
+    marginRight: 10,
+    marginTop: 5,
+    marginBottom: 5,
+    borderRadius: 10,
+    borderColor: 'gray',
+    borderWidth: 1,
     backgroundColor: 'white'
 	},
 	iconContainer: {
 		justifyContent: 'center',
 		alignItems: 'center',
-		width: 85,
+		width: 75,
 		position: 'absolute'
 	},
 	detailsContainer: {
