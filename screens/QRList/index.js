@@ -4,6 +4,7 @@ import ListItem from './ListItem'
 import LoadingLayout from '../_common/LoadingLayout'
 import mockData from '../../mockData'
 import ClearStorageButton from './ClearStorageButton'
+import ToQRScannerButton from './ToQRScannerButton';
 
 export default ({ navigation }) => {
   const [ scannedCodes, setScannedCodes ] = useState([])
@@ -11,7 +12,8 @@ export default ({ navigation }) => {
 
   useLayoutEffect(() => {
     navigation.setOptions({
-      headerRight: () => <ClearStorageButton onButtonPress={onClearButtonPress} />
+      headerRight: () => <ClearStorageButton onButtonPress={onClearButtonPress} />,
+      headerLeft: () => <ToQRScannerButton navigation={navigation}/>
     })
   }, [ navigation ])
 

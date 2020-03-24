@@ -45,11 +45,11 @@ const styles = {
 	wrapper: {
 		flexDirection: 'column',
 		justifyContent: 'center',
-    height: 100,
+    height: 90,
     marginLeft: 10,
     marginRight: 15,
-    marginTop: 8,
-    marginBottom: 8,
+    marginTop: 6,
+    marginBottom: 6,
     borderLeftWidth: 5,
     backgroundColor: 'white'
 	},
@@ -68,11 +68,11 @@ const styles = {
   content: {
     textAlign: 'center',
     fontWeight: '500', 
-    fontSize: 15,
+    fontSize: 13,
     maxWidth: 220
   },
   date: {
-    fontSize: 13,
+    fontSize: 11,
     fontWeight: '600',
     color: 'rgba(80,80,80,1)',
     paddingTop: 5

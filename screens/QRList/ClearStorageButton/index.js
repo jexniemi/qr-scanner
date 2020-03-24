@@ -6,7 +6,7 @@ export default ({ onButtonPress }) => {
   const clearStorage = () => {
     Alert.alert(
       "Tyhjennä varasto.",
-      "Oletko varma, että haluat poistaa kaikkit skannatut koodit?",
+      "Oletko varma, että haluat poistaa kaikkit skannatut QR-koodit?",
       [
         { text: 'Ok', onPress: () => onButtonPress()},
         { text: 'Peruuta', style: 'cancel'}
@@ -22,7 +22,7 @@ export default ({ onButtonPress }) => {
       <MaterialIcons
         name="layers-clear" 	
         size={35} 
-        color="red" 
+        color="rgba(255,0,20,1)" 
       />
     </TouchableOpacity> 
   )

@@ -17,7 +17,7 @@ export default function App() {
         mode="modal"
         screenOptions={{
           headerStyle: {
-            height: 90
+            height: 80
           },
           headerTitleAlign: 'center',
         }}
@@ -29,7 +29,7 @@ export default function App() {
             headerTransparent: Platform.OS === 'ios' ? true : false,
             headerStyle: {
               backgroundColor: 'black',
-              height: 90
+              height: 80
             },
 						headerTitleStyle: {
 							color: 'white',
@@ -40,27 +40,11 @@ export default function App() {
 				<Stack.Screen 
 					name="Skannatut QR-koodit" 
 					component={QRListScreen} 
-					options={({ navigation }) => ({
-            headerLeft: () => <ToQRScanner navigation={navigation}/>
-					})}
 				/>
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
-
-const ToQRScanner = ({ navigation }) => (
-  <TouchableOpacity 
-    onPress={() => navigation.navigate('QR Skanneri')}
-    style={{ width: 105, alignItems: 'center', justifyContent: 'center' }}
-  >
-    <Ionicons
-      name="md-qr-scanner" 	
-      size={35} 
-      color="black" 
-    />
-  </TouchableOpacity> 
-)
 
 const ToQRList = ({ navigation }) => (
   <TouchableOpacity
