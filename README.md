@@ -2,9 +2,9 @@
 
 QR Scanner application for iOS/Android, made with React-Native.
 
-![QR Scanner](./screenshots/qrscanner "Title")
-![QR List](./screenshots/qrlist "Title")
-![QR Code](./screenshots/qrcode "Title")
+![QR Scanner](./screenshots/qrscanner =250x)
+![QR List](./screenshots/qrlist =250x)
+![QR Code](./screenshots/qrcode =250x)
 
 ## Install
 
