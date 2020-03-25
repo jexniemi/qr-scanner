@@ -2,22 +2,22 @@
 
 QR Scanner application for iOS/Android, made with React-Native.
 
-![QR Scanner](./screenshots/qrscanner.png =250x)
-![QR List](./screenshots/qrlist.png =250x)
-![QR Code](./screenshots/qrcode.png =250x)
+<img src="https://github.com/jexniemi/qr-scanner/blob/master/screenshots/qrscanner.png" alt="QR Scanner" width="150"><img src="https://github.com/jexniemi/qr-scanner/blob/master/screenshots/qrlist.png" alt="QR List" width="150"><img src="https://github.com/jexniemi/qr-scanner/blob/master/screenshots/qrcode.png" alt="alt text" width="150">
 
 ### Features 
 
-* Scan QR codes and reveal content
+* Scan QR codes and reveal their content
 * Copy QR code content to clipboard
 * Open QR code content with browser or app that supports the format
-* Save QR code contents to phone's storage for later usage
+* Save QR codes to phone's storage for later usage
 * Clear saved QR codes from the phone
 
-## Install
+## Local development
+
+To install dependencies download and run:
 
 ```$ yarn```
 
-## Run
+To run app locally in development mode:
 
 ```$ yarn start```
