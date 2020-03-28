@@ -1,5 +1,5 @@
-import React, { ReactPropTypes } from 'react'
-import { Alert, AsyncStorage, TouchableOpacity, ShadowPropTypesIOS } from 'react-native'
+import React from 'react'
+import { Alert, TouchableOpacity } from 'react-native'
 import { MaterialIcons } from '@expo/vector-icons';
 
 export default ({ onButtonPress, disabled }) => {
