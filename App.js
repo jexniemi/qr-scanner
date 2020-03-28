@@ -1,8 +1,9 @@
 import React from 'react';
-import { TouchableOpacity, Button, AsyncStorage, Alert, Platform } from 'react-native';
+import { TouchableOpacity, Platform } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { Ionicons, MaterialIcons, FontAwesome } from '@expo/vector-icons';
+import { MaterialIcons, FontAwesome } from '@expo/vector-icons';
+import { Tooltip, Text } from 'react-native-elements';
 
 import QRListScreen from './screens/QRList';
 import QRScanner from './screens/QRScanner';
@@ -34,7 +35,8 @@ export default function App() {
 						headerTitleStyle: {
 							color: 'white',
             },
-            headerRight: () => <ToQRList navigation={navigation}/>
+            headerRight: () => <ToQRList navigation={navigation}/>,
+            headerLeft: () => <Info/>
 					})}
 				/>
 				<Stack.Screen 
@@ -48,7 +50,7 @@ export default function App() {
 
 const ToQRList = ({ navigation }) => (
   <TouchableOpacity
-    style={{ position: 'absolute', zIndex: 1000000, right: 20 }} 
+    style={{ width: 105, alignItems: 'center', justifyContent: 'center'}} 
     onPress={() => navigation.navigate('Skannatut QR-koodit')}
   >
     <FontAwesome
@@ -57,4 +59,26 @@ const ToQRList = ({ navigation }) => (
       color="white" 
     />
   </TouchableOpacity>
+)
+
+const Info = () => (
+    <TouchableOpacity
+      style={{ width: 105, alignItems: 'center', justifyContent: 'center' }} 
+    >
+      <Tooltip 
+        height={80}
+        width={200}
+        backgroundColor='white'
+        popover={
+          <Text numberOfLines={2}>
+            Osoita QR-koodia kamerallasi lukeaksi sen.
+          </Text>
+        }>
+      <MaterialIcons
+        name="info-outline" 	
+        size={35} 
+        color="white" 
+      />
+      </Tooltip>
+    </TouchableOpacity>
 )
