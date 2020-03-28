@@ -1,8 +1,8 @@
 import React, { ReactPropTypes } from 'react'
-import { Alert, AsyncStorage, TouchableOpacity } from 'react-native'
+import { Alert, AsyncStorage, TouchableOpacity, ShadowPropTypesIOS } from 'react-native'
 import { MaterialIcons } from '@expo/vector-icons';
 
-export default ({ onButtonPress }) => {
+export default ({ onButtonPress, disabled }) => {
   const clearStorage = () => {
     Alert.alert(
       "Tyhjennä varasto.",
@@ -18,11 +18,12 @@ export default ({ onButtonPress }) => {
     <TouchableOpacity 
       onPress={() => clearStorage()}
       style={{ width: 105, alignItems: 'center', justifyContent: 'center' }}
+      disabled={disabled}
     >
       <MaterialIcons
         name="layers-clear" 	
         size={35} 
-        color="rgba(255,0,20,1)" 
+        color={ disabled? "gray" : "rgba(255,0,20,1)" }
       />
     </TouchableOpacity> 
   )

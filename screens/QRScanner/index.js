@@ -3,7 +3,7 @@ import { Alert, AsyncStorage, Clipboard, Dimensions, Text, View, Linking } from 
 import { BarCodeScanner } from 'expo-barcode-scanner';
 import { useIsFocused } from '@react-navigation/native';
 
-export default (props) => {
+export default () => {
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
 
