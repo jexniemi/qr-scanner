@@ -14,6 +14,8 @@ QR Scanner application for iOS/Android, made with React-Native.
 
 ## Local development
 
+Expo CLI needs to be installed for local development.
+
 To install dependencies download and run:
 
 ```$ yarn```
