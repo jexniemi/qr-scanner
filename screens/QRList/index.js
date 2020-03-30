@@ -4,6 +4,7 @@ import ListItem from './ListItem'
 import LoadingLayout from '../_common/LoadingLayout'
 import ClearStorageButton from './ClearStorageButton'
 import ToQRScannerButton from './ToQRScannerButton';
+import mockData from '../../mockData'
 
 export default ({ navigation }) => {
   const [ scannedCodes, setScannedCodes ] = useState([])
@@ -16,7 +17,7 @@ export default ({ navigation }) => {
       headerRight: () => <ClearStorageButton onButtonPress={onClearButtonPress} disabled={noScannedCodes} />,
       headerLeft: () => <ToQRScannerButton navigation={navigation}/>
     })
-  }, [ navigation ])
+  }, [ navigation, scannedCodes ])
 
 	useEffect(() => {
     _retrieveData()

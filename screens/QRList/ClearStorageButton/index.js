@@ -23,7 +23,7 @@ export default ({ onButtonPress, disabled }) => {
       <MaterialIcons
         name="layers-clear" 	
         size={35} 
-        color={ disabled? "gray" : "rgba(255,0,20,1)" }
+        color={ disabled? "gray" : "rgba(255,0,20,1)"  }
       />
     </TouchableOpacity> 
   )
