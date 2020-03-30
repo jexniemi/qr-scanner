@@ -69,6 +69,7 @@ const Info = () => (
         height={80}
         width={200}
         backgroundColor='white'
+        overlayColor='rgba(200,200,200,0.3)'
         popover={
           <Text numberOfLines={2}>
             Osoita QR-koodia kamerallasi lukeaksi sen.
