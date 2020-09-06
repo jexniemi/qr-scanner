@@ -35,7 +35,7 @@ export default ({ navigation }) => {
   };
 
   const _retrieveData = async () => {
-    // setScannedCodes(JSON.parse(mockData))
+    setScannedCodes(JSON.parse(mockData));
     try {
       var codes = await AsyncStorage.getItem("ScannedCodes");
       if (codes != null) {

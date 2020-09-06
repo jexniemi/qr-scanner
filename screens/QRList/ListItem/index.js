@@ -11,7 +11,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 export default ({ content, date }) => {
   const handlePress = () => {
-    Alert.alert("QR-koodin sisältö:", `${content}`, [
+    Alert.alert("QR-koodin sisältö:", `"${content}"`, [
       { text: "Peruuta", onPress: () => {}, style: "cancel" },
       {
         text: "Avaa",
@@ -20,7 +20,7 @@ export default ({ content, date }) => {
           if (supported) {
             await Linking.openURL(content);
           } else {
-            Alert.alert("Ei avattavissa.");
+            Alert.alert("Ei avattavissa millään sovelluksella.");
           }
         },
       },

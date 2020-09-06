@@ -57,7 +57,12 @@ export default () => {
 
   const handleAlertOpen = async (data) => {
     await _storeData(data), setScannedFalse();
-    Linking.openURL(data).catch((err) => Alert.alert("Virhe", err));
+    const supported = await Linking.canOpenURL(data);
+    if (supported) {
+      await Linking.openURL(content);
+    } else {
+      Alert.alert("Ei avattavissa. Koodi tallennettu.");
+    }
   };
 
   const _storeData = async (data) => {
