@@ -8,7 +8,6 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import * as WebBrowser from "expo-web-browser";
 
 export default ({ content, date }) => {
   const handlePress = () => {
