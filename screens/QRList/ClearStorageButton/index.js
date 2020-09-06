@@ -1,6 +1,6 @@
-import React from 'react'
-import { Alert, TouchableOpacity } from 'react-native'
-import { MaterialIcons } from '@expo/vector-icons';
+import React from "react";
+import { Alert, TouchableOpacity } from "react-native";
+import { MaterialIcons } from "@expo/vector-icons";
 
 export default ({ onButtonPress, disabled }) => {
   const clearStorage = () => {
@@ -8,23 +8,23 @@ export default ({ onButtonPress, disabled }) => {
       "Tyhjennä varasto.",
       "Oletko varma, että haluat poistaa kaikkit skannatut QR-koodit?",
       [
-        { text: 'Ok', onPress: () => onButtonPress()},
-        { text: 'Peruuta', style: 'cancel'}
+        { text: "Ok", onPress: () => onButtonPress() },
+        { text: "Peruuta", style: "cancel" },
       ]
-    )
-  }
+    );
+  };
 
   return (
-    <TouchableOpacity 
+    <TouchableOpacity
       onPress={() => clearStorage()}
-      style={{ width: 105, alignItems: 'center', justifyContent: 'center' }}
+      style={{ width: 105, alignItems: "center", justifyContent: "center" }}
       disabled={disabled}
     >
       <MaterialIcons
-        name="layers-clear" 	
-        size={35} 
-        color={ disabled? "gray" : "rgba(255,0,20,1)"  }
+        name="layers-clear"
+        size={35}
+        color={disabled ? "gray" : "rgba(255,0,20,1)"}
       />
-    </TouchableOpacity> 
-  )
-}
+    </TouchableOpacity>
+  );
+};
