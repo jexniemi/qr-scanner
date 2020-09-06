@@ -72,7 +72,7 @@ const Info = () => (
         overlayColor='rgba(200,200,200,0.3)'
         popover={
           <Text numberOfLines={2}>
-            Osoita QR-koodia kamerallasi lukeaksi sen.
+            Osoita QR-koodia kamerallasi lukeaksesi sen.
           </Text>
         }>
       <MaterialIcons

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Alert, Clipboard, Linking, Text, View, TouchableOpacity } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import * as WebBrowser from 'expo-web-browser';
 
 export default ({ content, date }) => {
   const handlePress = () => {
@@ -9,8 +10,13 @@ export default ({ content, date }) => {
       `${content}`,
       [
         {text: 'Peruuta', onPress: () => {}, style: 'cancel'},
-        {text: 'Avaa', onPress: () => {
-          Linking.openURL(content).catch((err) => Alert.alert('Virhe', err));
+        {text: 'Avaa', onPress: async () => {
+          const supported = await Linking.canOpenURL(content)
+          if (supported) {
+            await Linking.openURL(content)
+          } else {
+            Alert.alert('Ei avattavissa.')
+          }
         }},
         {text: 'Kopioi leikepöydälle', onPress: () => {
           Clipboard.setString(content)
