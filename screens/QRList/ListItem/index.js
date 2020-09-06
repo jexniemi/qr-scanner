@@ -33,6 +33,7 @@ export default ({ content, date }) => {
       },
     ]);
   };
+
   return (
     <View>
       <TouchableOpacity style={styles.wrapper} onPress={() => handlePress()}>
