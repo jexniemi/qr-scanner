@@ -59,7 +59,7 @@ export default () => {
     await _storeData(data), setScannedFalse();
     const supported = await Linking.canOpenURL(data);
     if (supported) {
-      await Linking.openURL(content);
+      await Linking.openURL(data);
     } else {
       Alert.alert("Ei avattavissa. Koodi tallennettu.");
     }

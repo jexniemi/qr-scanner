@@ -5,7 +5,7 @@
     "privacy": "public",
     "sdkVersion": "36.0.0",
     "platforms": ["ios", "android", "web"],
-    "version": "1.1.4",
+    "version": "1.1.5",
     "orientation": "portrait",
     "icon": "./assets/qrIcon.png",
     "splash": {
@@ -20,7 +20,7 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "fi.flipgate.qrskanneri",
-      "buildNumber": "1.1.4",
+      "buildNumber": "1.1.5",
       "infoPlist": {
         "NSCameraUsageDescription": "This app uses the camera to scan QR codes."
       }
